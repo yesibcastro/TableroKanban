@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { Login } from '../modelo/login';
-import { ResponseLogin } from '../modelo/responseLogin';
-import { LoginService } from '../service/login.service';
+import { Router } from '@angular/router';
+import { ResponseGenerico } from '../modelo/responseGenerico';
+import { Usuario } from '../modelo/usuario';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,30 +10,29 @@ import { LoginService } from '../service/login.service';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
-  titulo:string="Lista de Usuarios";
+  titulo:string="Usuarios";
 
-  login:Login = new Login();
-  respLogin:ResponseLogin = new ResponseLogin();
+  respGenerico:ResponseGenerico = new ResponseGenerico();
+  usuario:Usuario = new Usuario();
   cod:string;
-  constructor(private loginService:LoginService, private router:Router) { }
+  constructor(private usuarioService:UsuarioService, private router:Router) { }
   ngOnInit(): void {
 
   }
 
-  loggear(){
+  crearUsuario(){
 
-     this.loginService.loggeo(this.login).subscribe(
-      data =>{
-       this.respLogin.cod=data.cod
-       this.respLogin.desc=data.desc
-       if(this.respLogin.cod=="01"){
-        this.router.navigate(['/tareas']);
-       }else{
-        this.router.navigate(['/home']);
-       }
-
+    this.usuarioService.creacionUsuario(this.usuario).subscribe(
+     data =>{
+      this.respGenerico.cod=data.cod
+      this.respGenerico.desc=data.desc
+      if(this.respGenerico.cod=="01"){
+       this.router.navigate(['/login']);
+      }else{
+        alert(this.respGenerico.desc);
       }
-    );
-  }
 
+     }
+   );
+ }
 }

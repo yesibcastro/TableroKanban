@@ -1,4 +1,4 @@
-export class ResponseLogin {
+export class ResponseGenerico {
   cod: string;
   desc: string;
   }

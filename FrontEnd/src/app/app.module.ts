@@ -8,20 +8,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HomeComponent } from './home/home.component';
-import { TareasComponent } from './tareas/tareas/tareas.component';
+import { TareasComponent } from './tareas/tareas.component';
+import { LoginComponent } from './login/login.component';
+import { CrearTareaComponent } from './tareas/crear-tarea.component';
+import { ActualizarTareaComponent } from './tareas/actualizar-tarea.component';
+
 
 const routes:Routes = [
   {path: '',redirectTo:'/login',pathMatch:'full'},
-  {path: 'login', component: UsuariosComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'home', component:HomeComponent},
-  {path: 'tareas', component:TareasComponent}
+  {path: 'tareas', component:TareasComponent},
+  {path: 'usuarios', component:UsuariosComponent},
+  {path: 'crearTarea', component:CrearTareaComponent},
+  {path: 'actualizarTarea', component:ActualizarTareaComponent}
+
 ]
 @NgModule({
   declarations: [
     AppComponent,
     UsuariosComponent,
     HomeComponent,
-    TareasComponent
+    TareasComponent,
+    LoginComponent,
+    CrearTareaComponent,
+    ActualizarTareaComponent
   ],
   imports: [
     BrowserModule,

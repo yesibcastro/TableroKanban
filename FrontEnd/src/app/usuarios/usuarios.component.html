@@ -2,21 +2,29 @@
   <div id="central">
       <div id="login">
           <div class="titulo">
-              Bienvenido
+              Registrate!!
           </div>
           <form id="loginform">
-              <input type="text" [(ngModel)]="login.usuario" name="usuario" placeholder="Usuario" required>
 
-              <input type="password"  [(ngModel)]="login.contrasena" placeholder="Contraseña" name="password" required>
+              <input type="text" [(ngModel)]="usuario.usuario" name="usuario" placeholder="Usuario" required>
 
-              <button type="submit" (click)="loggear()" title="Ingresar" name="Ingresar">Login</button>
+              <input type="text"  [(ngModel)]="usuario.contrasena" placeholder="Contraseña" name="password" required>
+
+              <input type="text"  [(ngModel)]="usuario.primerNombre" placeholder="primerNombre" name="primerNombre" required>
+
+              <input type="text"  [(ngModel)]="usuario.segundoNombre" placeholder="segundoNombre" name="primerNombre" required>
+
+              <input type="text"  [(ngModel)]="usuario.primerApellido" placeholder="primerApellido" name="primerApellido" required>
+
+              <input type="text"  [(ngModel)]="usuario.segundoApellido" placeholder="segundoApellido" name="segundoApellido"required>
+
+              <button type="submit" (click)="crearUsuario()" title="Ingresar" name="Ingresar">Login</button>
           </form>
-          <div class="pie-form">
-              <a href="#">¿No tienes Cuenta? Registrate</a>
-          </div>
+
       </div>
       <div class="inferior">
-          <a href="#">Volver</a>
+          <a [routerLink]="['/login']">Volver</a>
       </div>
   </div>
 </div>
+

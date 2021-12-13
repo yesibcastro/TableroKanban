@@ -1,0 +1,35 @@
+
+<div class="container">
+<div class="card-body"  *ngFor="let usuario of respTareaUsurio; first as isFirst">
+  <h5>Tareas</h5>
+  <p *ngIf="isFirst"> {{usuario.idUsuario.primerNombre + " " + usuario.idUsuario.segundoNombre }} </p>
+</div>
+
+<button type="button" class="btn btn-success" [routerLink]="['/crearTarea']" title="Crear Tarea" name="Registro">Crear Tarea</button>
+<div></div>
+<table class="table-info">
+  <thead class="table-light">
+    <tr class="table-light">
+      <th style="width : 25%" scope="col">Nombre Tarea</th>
+      <th  style="width : 20%"scope="col">Tipo Tarea</th>
+      <th  style="width : 20%" scope="col">Descripcion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tareas of respTareaUsurio">
+      <td>{{tareas.nombreTarea}}</td>
+      <td>{{tareas.tipoTarea}}</td>
+      <td>{{tareas.descripcionTarea}}</td>
+      <button type="button" class="btn btn-success"(click)="actualizarTarea(tareas.nombreTarea)" title="Actualizar" name="actualizar">Actualizar</button>
+      <td></td>
+      <td></td>
+      <td></td>
+      <button type="button" class="btn btn-danger" (click)="eliminarTarea(tareas.nombreTarea)" title="Eliminar" name="eliminar">Eliminar</button>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<button type="button" class="btn btn-info"[routerLink]="['/login']"title="Cerrar Sesión" name="cerrarSesion">Cerrar Sesión</button>
+

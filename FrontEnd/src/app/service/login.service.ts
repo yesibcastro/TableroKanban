@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Login } from '../modelo/login';
-import { ResponseLogin } from '../modelo/responseLogin';
+import { ResponseGenerico } from '../modelo/responseGenerico';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class LoginService {
   constructor(private http:HttpClient) {}
 
     //obtengo validacion del login
-    loggeo(login:Login):Observable<ResponseLogin> {
-      return this.http.post<ResponseLogin>(this.url, login);
+    loggeo(login:Login):Observable<ResponseGenerico> {
+      return this.http.post<ResponseGenerico>(this.url, login);
   }
 }
 

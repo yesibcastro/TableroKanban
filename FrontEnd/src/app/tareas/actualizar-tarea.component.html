@@ -1,0 +1,22 @@
+<div class="container">
+  <div id="central">
+      <div id="login">
+          <div class="titulo">
+              Crear Tarea
+          </div>
+          <form id="loginform">
+              <input type="text" [(ngModel)]="acttarea.tipoTarea" name="tipoTarea" placeholder="tipoTarea" required>
+
+
+              <button type="submit" class="btn btn-success" (click)="actualizarTarea()" title="actualzar" name="actualizar">Actualizar Tarea</button>
+
+              <button type="submit"  class="btn btn-info"[routerLink]="['/login']" title="Cerrar Sesión" name="cerrarSesion">Cerrar Sesión</button>
+            </form>
+
+      </div>
+      <div class="inferior">
+          <a [routerLink]="['/tareas']">Volver</a>
+      </div>
+  </div>
+</div>
+
